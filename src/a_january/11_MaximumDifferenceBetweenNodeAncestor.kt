@@ -1,11 +1,11 @@
 package a_january
 
-import sun.swing.MenuItemLayoutHelper.max
 import util.TreeNode
+import kotlin.math.max
 import kotlin.math.min
 
 /**
- *  Problem = 11 : Maximum Difference Between Node and Ancestor
+ *  Problem = 12 : Determine if String Halves Are Alike
  *
  *  # Intuition  :
  *
