@@ -17,7 +17,6 @@ package a_january
  *
  * # Code =>
  */
-
 fun main() {
 
     val s = "book"
