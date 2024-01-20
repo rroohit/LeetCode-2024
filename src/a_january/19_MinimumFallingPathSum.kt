@@ -1,6 +1,5 @@
 package a_january
 
-//
 /**
  *  Problem = 19 : Minimum Falling Path Sum
  *
