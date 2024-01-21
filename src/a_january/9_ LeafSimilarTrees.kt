@@ -5,11 +5,6 @@ import data_types.TreeNode
 /**
  *  Problem = 9 : Leaf Similar Tree
  *
- *  # Intuition  :
- *
- *
- *  # Approach   :
- *
  *
  *  # Complexity :
  *

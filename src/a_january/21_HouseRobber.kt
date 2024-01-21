@@ -5,11 +5,6 @@ import kotlin.math.max
 /**
  *  Problem = 21 : House Robber
  *
- *  # Intuition  :
- *
- *
- *  # Approach   :
- *
  *
  *  # Complexity :
  *

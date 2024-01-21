@@ -5,11 +5,6 @@ import kotlin.math.min
 /**
  *  Problem = 20 : Sum of Subarray Minimums
  *
- *  # Intuition  :
- *
- *
- *  # Approach   :
- *
  *
  *  # Complexity :
  *

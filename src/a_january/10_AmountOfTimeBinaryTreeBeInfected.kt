@@ -9,11 +9,6 @@ import kotlin.math.min
 /**
  *  Problem = 10 : Amount of Time for Binary Tree to Be Infected
  *
- *  # Intuition  :
- *
- *
- *  # Approach   :
- *
  *
  *  # Complexity :
  *

@@ -3,11 +3,6 @@ package a_january
 /**
  *  Problem = 15 : Find Players With Zero or One Losses
  *
- *  # Intuition  :
- *
- *
- *  # Approach   :
- *
  *
  *  # Complexity :
  *

@@ -3,10 +3,6 @@ package a_january
 /**
  *  Problem = 3 : Number of Laser Beams in a Bank
  *
- *  # Intuition  :
- *
- *
- *  # Approach   :
  *
  *
  *  # Complexity :

@@ -3,11 +3,6 @@ package a_january
 /**
  *  Problem = 16 : Insert Delete GetRandom O(1)
  *
- *  # Intuition  :
- *
- *
- *  # Approach   :
- *
  *
  *  # Complexity :
  *

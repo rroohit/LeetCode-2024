@@ -3,11 +3,6 @@ package a_january
 /**
  *  Problem = 1 : Assign Cookies
  *
- *  # Intuition  :
- *
- *
- *  # Approach   :
- *
  *
  *  # Complexity :
  *

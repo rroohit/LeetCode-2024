@@ -3,11 +3,6 @@ package a_january
 /**
  *  Problem = 17 : Unique Number of Occurrences
  *
- *  # Intuition  :
- *
- *
- *  # Approach   :
- *
  *
  *  # Complexity :
  *

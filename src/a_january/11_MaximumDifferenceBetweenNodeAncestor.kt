@@ -7,11 +7,6 @@ import kotlin.math.min
 /**
  *  Problem = 12 : Determine if String Halves Are Alike
  *
- *  # Intuition  :
- *
- *
- *  # Approach   :
- *
  *
  *  # Complexity :
  *

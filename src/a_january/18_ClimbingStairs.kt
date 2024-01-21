@@ -3,11 +3,6 @@ package a_january
 /**
  *  Problem = 18 : Climbing Stairs
  *
- *  # Intuition  :
- *
- *
- *  # Approach   :
- *
  *
  *  # Complexity :
  *
