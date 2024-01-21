@@ -1,6 +1,6 @@
 package a_january
 
-import util.TreeNode
+import data_types.TreeNode
 
 /**
  *  Problem = 9 : Leaf Similar Tree

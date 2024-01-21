@@ -1,6 +1,6 @@
 package a_january
 
-import util.TreeNode
+import data_types.TreeNode
 import java.util.*
 import kotlin.math.abs
 import kotlin.math.max
