@@ -1,6 +1,18 @@
 package a_january
 
-// K-Inverse Pairs Array
+//
+/**
+ *  Problem = 27 : K-Inverse Pairs Array
+ *
+ *
+ *  # Complexity :
+ *
+ *      - Time complexity: (n + m)
+ *
+ *      - Space complexity: (n)
+ *
+ * # Code =>
+ */
 fun main() {
 
     val n = 3
