@@ -6,9 +6,9 @@ package a_january
  *
  *  # Complexity :
  *
- *      - Time complexity: (n + m) -
+ *      - Time complexity: O(n + m) -
  *
- *      - Space complexity: (1)
+ *      - Space complexity: O(1)
  *
  * # Code =>
  */

@@ -8,9 +8,9 @@ import data_types.TreeNode
  *
  *  # Complexity :
  *
- *      - Time complexity: (n + n)
+ *      - Time complexity: O(n + n)
  *
- *      - Space complexity: (m + m)
+ *      - Space complexity: O(m + m)
  *
  * # Code =>
  */

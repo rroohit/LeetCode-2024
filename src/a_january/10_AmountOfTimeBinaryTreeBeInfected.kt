@@ -12,9 +12,9 @@ import kotlin.math.min
  *
  *  # Complexity :
  *
- *      - Time complexity: (n)
+ *      - Time complexity: O(n)
  *
- *      - Space complexity: (m)
+ *      - Space complexity: O(m)
  *
  * # Code =>
  */

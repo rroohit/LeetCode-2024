@@ -8,9 +8,9 @@ import java.util.*
  *
  *  # Complexity :
  *
- *      - Time complexity: (n)
+ *      - Time complexity: O(n)
  *
- *      - Space complexity: (1)
+ *      - Space complexity: O(1)
  *
  * # Code =>
  */
