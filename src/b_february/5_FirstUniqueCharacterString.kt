@@ -1,7 +1,7 @@
 package b_february
 
 /**
- *  Problem = 3 : First Unique Character in a String
+ *  Problem = 5 : First Unique Character in a String
  *
  *
  *  # Complexity :
