@@ -8,7 +8,7 @@ package b_february
  *  ## Approach -
  *
  *  ## Complexity:
- *       - Time complexity: O(n)
+ *       - Time complexity: O(nlogn)
  *
  *       - Space complexity: O(n)
  *
