@@ -16,7 +16,7 @@ package b_february
  */
 fun main() {
 
-    val nums = intArrayOf(9,6,4,2,3,5,7,0,1)
+    val nums = intArrayOf(9, 6, 4, 2, 3, 5, 7, 0, 1)
 
     println("Result ==> ${missingNumber(nums)}")
 
@@ -25,7 +25,7 @@ fun main() {
 fun missingNumber(nums: IntArray): Int {
     val n = nums.size
     var res = (n * (n + 1)) / 2
-    for(num in nums) {
+    for (num in nums) {
         res -= num
     }
     return res
