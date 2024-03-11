@@ -29,6 +29,7 @@ fun main() {
 
 }
 
+// TC - O(n) : SC - O(n)
 fun intersection(nums1: IntArray, nums2: IntArray): IntArray {
     val map = HashSet<Int>()
     nums1.forEach { i ->
