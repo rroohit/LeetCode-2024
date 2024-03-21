@@ -29,7 +29,7 @@ fun main() {
     val head2 = createLinkedList(list2)
 
 
-    println("Merged List:")
+    println("Result List: ")
     val mergedHead = mergeInBetween(head1, a,  b, head2)
     printLinkedList(mergedHead)
 
