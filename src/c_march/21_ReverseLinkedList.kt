@@ -30,9 +30,15 @@ fun main() {
 
 }
 
+// Using recursion
+fun reverseList(head: ListNode?): ListNode? {
+
+    return head
+}
+
 // Using swapping methods
 // TC - O(n) : SC - O(1)
-fun reverseList(head: ListNode?): ListNode? {
+fun reverseList1(head: ListNode?): ListNode? {
     var prev: ListNode? = null
     var cur: ListNode? = head
 
