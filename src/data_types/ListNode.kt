@@ -17,8 +17,14 @@ fun createLinkedList(nums: IntArray): ListNode? {
 }
 
 fun printLinkedList(head: ListNode?) {
+    val visited = mutableSetOf<ListNode>()
     var current: ListNode? = head
     while (current != null) {
+        if (visited.contains(current)) {
+            println("Linked list has cycle")
+            break
+        }
+        visited.add(current)
         print("${current.`val`} ")
         current = current.next
         if (current != null) print("-> ")
