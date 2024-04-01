@@ -26,8 +26,8 @@ fun main() {
 fun lengthOfLastWord(s: String): Int {
     var len = 0
     var i = s.length - 1
-    while (s[i] == ' ' && i > 0) i--
 
+    while (s[i] == ' ' && i > 0) i--
 
     while (i >= 0 && s[i] != ' ') {
         i--
