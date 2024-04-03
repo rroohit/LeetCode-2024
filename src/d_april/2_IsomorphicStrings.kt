@@ -8,9 +8,9 @@ package d_april
  *  ## Approach -
  *
  *  ## Complexity:
- *       - Time complexity:
+ *       - Time complexity: o(n)
  *
- *       - Space complexity:
+ *       - Space complexity: O(1)
  *
  * ## Code -
  */
