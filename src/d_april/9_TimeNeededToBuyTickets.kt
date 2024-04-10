@@ -10,7 +10,7 @@ import kotlin.math.min
  *  ## Approach -
  *
  *  ## Complexity:
- *       - Time complexity: O(100) =  O(1)
+ *       - Time complexity: O(n) =  O(1)
  *          - 100 max size of array
  *
  *       - Space complexity: o(1)
