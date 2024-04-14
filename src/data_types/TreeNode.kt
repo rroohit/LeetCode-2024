@@ -36,3 +36,43 @@ fun createTree(nodes: List<Int?>): TreeNode? {
 
     return root
 }
+
+fun printTreeBFS(root: TreeNode?) {
+    if (root == null) return
+
+    val queue: Queue<Pair<TreeNode, Int>> = LinkedList()
+    queue.offer(Pair(root, 0))
+    var prevLevel = -1
+
+    while (!queue.isEmpty()) {
+        val (node, level) = queue.poll()
+        if (level != prevLevel) {
+            println()
+            prevLevel = level
+        }
+        print("${node.`val`} ")
+
+        node.left?.let { queue.offer(Pair(it, level + 1)) }
+        node.right?.let { queue.offer(Pair(it, level + 1)) }
+    }
+}
+
+fun printTreeDFS(root: TreeNode?) {
+    if (root == null) return
+
+    val stack = Stack<Pair<TreeNode, Int>>()
+    stack.push(Pair(root, 0))
+    var prevLevel = -1
+
+    while (!stack.isEmpty()) {
+        val (node, level) = stack.pop()
+        if (level != prevLevel) {
+            println()
+            prevLevel = level
+        }
+        print("${node.`val`} ")
+
+        node.right?.let { stack.push(Pair(it, level + 1)) }
+        node.left?.let { stack.push(Pair(it, level + 1)) }
+    }
+}
