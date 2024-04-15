@@ -27,20 +27,20 @@ fun main() {
 }
 
 fun sumNumbers(root: TreeNode?): Int {
-    return treeTravel(root, 0)
+    return preorderTraversal(root, 0)
 }
 
-private fun treeTravel(root: TreeNode?, prevNum: Int): Int {
+private fun preorderTraversal(root: TreeNode?, prevNum: Int): Int {
     val curr = prevNum * 10 + (root?.`val` ?: 0)
 
     // base case
     if (root?.left == null && root?.right == null) return curr
 
     /// visit left node
-    val left = if (root.left != null) treeTravel(root.left, curr) else 0
+    val left = if (root.left != null) preorderTraversal(root.left, curr) else 0
 
     // visit right node
-    val right = if (root.right != null) treeTravel(root.right, curr) else 0
+    val right = if (root.right != null) preorderTraversal(root.right, curr) else 0
 
     return left + right
 }
