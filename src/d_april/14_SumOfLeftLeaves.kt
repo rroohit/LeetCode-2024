@@ -29,9 +29,28 @@ fun main() {
 
 }
 
+// DFS
+fun sumOfLeftLeaves(root: TreeNode?): Int {
+    // base case
+    if (root == null) return 0
+
+    // Check if the left child is a leaf node
+    val leftSum = if (root.left?.left == null && root.left?.right == null) {
+        root.left?.`val` ?: 0
+    } else {
+        sumOfLeftLeaves(root.left) // Recursively compute sum for left subtree
+    }
+
+    // visit right node
+    val rightSum = sumOfLeftLeaves(root.right)
+
+    return leftSum + rightSum
+}
+
+
 // dfs
 private var sum = 0
-fun sumOfLeftLeaves(root: TreeNode?): Int {
+fun sumOfLeftLeaves1(root: TreeNode?): Int {
     if (root == null) return 0
     if (root.left != null) {
         // if the visiting left node is already leaf add to ans
