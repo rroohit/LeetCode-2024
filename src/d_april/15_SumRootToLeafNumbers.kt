@@ -19,7 +19,7 @@ import data_types.createTree
  */
 fun main() {
 
-    val list = listOf(1, 0)
+    val list = listOf(4, 9, 0, 5, 1)
     val root = createTree(list)
 
     println("Result ==> ${sumNumbers(root)}")
