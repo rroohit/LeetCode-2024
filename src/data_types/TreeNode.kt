@@ -40,39 +40,27 @@ fun createTree(nodes: List<Int?>): TreeNode? {
 fun printTreeBFS(root: TreeNode?) {
     if (root == null) return
 
-    val queue: Queue<Pair<TreeNode, Int>> = LinkedList()
-    queue.offer(Pair(root, 0))
-    var prevLevel = -1
+    val queue: Queue<TreeNode> = LinkedList()
+    queue.offer(root)
 
-    while (!queue.isEmpty()) {
-        val (node, level) = queue.poll()
-        if (level != prevLevel) {
-            println()
-            prevLevel = level
-        }
+    while (queue.isNotEmpty()) {
+        val node = queue.poll()
         print("${node.`val`} ")
 
-        node.left?.let { queue.offer(Pair(it, level + 1)) }
-        node.right?.let { queue.offer(Pair(it, level + 1)) }
+        node.left?.let { queue.offer(it) }
+        node.right?.let { queue.offer(it) }
     }
 }
 
-fun printTreeDFS(root: TreeNode?) {
-    if (root == null) return
+fun printTreeDFS(node: TreeNode?) {
+    if (node == null) return
 
-    val stack = Stack<Pair<TreeNode, Int>>()
-    stack.push(Pair(root, 0))
-    var prevLevel = -1
+    // Print the current node value
+    print("${node.`val`} ")
 
-    while (!stack.isEmpty()) {
-        val (node, level) = stack.pop()
-        if (level != prevLevel) {
-            println()
-            prevLevel = level
-        }
-        print("${node.`val`} ")
+    // Recursively traverse left subtree
+    printTreeDFS(node.left)
 
-        node.right?.let { stack.push(Pair(it, level + 1)) }
-        node.left?.let { stack.push(Pair(it, level + 1)) }
-    }
+    // Recursively traverse right subtree
+    printTreeDFS(node.right)
 }
