@@ -25,13 +25,13 @@ fun main() {
     val `val` = 1
     val depth = 2
 
-    print("Before adding node =>")
+    print("Before adding node => ")
     printTreeDFS(root)
     println()
     println()
 
     val newRoot = addOneRow(root, `val`, depth)
-    print("After adding node => ")
+    print("After adding node  => ")
     printTreeDFS(newRoot)
 
 
@@ -54,12 +54,10 @@ private fun replaceTheNode(curr: TreeNode?, num: Int, depth: Int) {
     if (curr == null) return // base case
 
     if (depth == 1) { // the next node where we will reach the given depth
-        val nextLeft = curr.left
-        val nextRight = curr.right
+        val temp: TreeNode = curr
+        curr.left = TreeNode(num).apply { left = temp.left }
 
-        curr.left = TreeNode(num).apply { left = nextLeft }
-
-        curr.right = TreeNode(num).apply { right = nextRight }
+        curr.right = TreeNode(num).apply { right = temp.right }
 
     } else {
         replaceTheNode(curr.left, num, depth - 1)
