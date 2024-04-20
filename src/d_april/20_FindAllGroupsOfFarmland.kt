@@ -37,6 +37,38 @@ fun findFarmland(land: Array<IntArray>): Array<IntArray> {
     val result = mutableListOf<IntArray>()
     for (r in land.indices) { // Row
         for (c in land[0].indices) { // Column
+
+            if (land[r][c] == 1) {
+                land.forEach { println(it.toList()) }
+                land[r][c] = 0
+                var h = c + 1 // Horizontal
+                while (h < land[0].size && land[r][h] == 1) {
+                    land[r][h] = 0
+                    h++
+                }
+
+                var v = r + 1 // Vertical
+                while (v < land.size && land[v][c] == 1) {
+                    for (k in c..<h ) {
+                        land[v][k] = 0
+                    }
+                    v++
+                }
+                result.add(intArrayOf(r, c, v - 1, h - 1))
+            }
+            println()
+        }
+    }
+
+    return result.toTypedArray()
+}
+
+
+// 1
+fun findFarmland2(land: Array<IntArray>): Array<IntArray> {
+    val result = mutableListOf<IntArray>()
+    for (r in land.indices) { // Row
+        for (c in land[0].indices) { // Column
             if (land[r][c] == 1) {
                 // Explore the current farmland and return topLeft and bottomRight
                 val starEnd = exploreLand(r, c, land, intArrayOf(r, c, r, c))
@@ -45,7 +77,6 @@ fun findFarmland(land: Array<IntArray>): Array<IntArray> {
         }
     }
 
-
     return result.toTypedArray()
 }
 
@@ -53,12 +84,6 @@ private fun exploreLand(r: Int, c: Int, land: Array<IntArray>, startEnd: IntArra
     if (r < 0 || c < 0 || r >= land.size || c >= land[0].size || land[r][c] != 1) return startEnd
     // update land as visited
     land[r][c] = 0
-
-    // If we found new r1, c1, r2, c2 need to update in startEnd array
-    if (r < startEnd[0]) {
-        startEnd[0] = r // r1
-        startEnd[1] = c // c1
-    }
 
     if (c >= startEnd[3]) {
         startEnd[2] = r // r2
