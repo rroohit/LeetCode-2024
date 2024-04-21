@@ -40,7 +40,40 @@ fun main() {
 
 }
 
+// DFS
+lateinit var adjList: Array<MutableList<Int>>
 fun validPath(n: Int, edges: Array<IntArray>, source: Int, destination: Int): Boolean {
+    adjList = Array(n) { mutableListOf() }
+    val visitedDest = BooleanArray(n) { false }
+
+    /// Build Adjacency List
+    for (edge in edges) {
+        val u = edge[0]
+        val v = edge[1] // vertices
+        adjList[u].add(v)
+        adjList[v].add(u)
+    }
+
+    findPath(source, visitedDest, adjList)
+    return visitedDest[destination]
+}
+
+private fun findPath(curr: Int, visitedDest: BooleanArray, adjList: Array<MutableList<Int>>) {
+    if (visitedDest[curr]) return // base case if already visited return
+    visitedDest[curr] = true
+
+    // recursive travel from curr node to it's vertices
+    for (node in adjList[curr]) {
+        if (!visitedDest[node]) {
+            findPath(node, visitedDest, adjList)
+        }
+    }
+}
+
+
+// ========================================================================================
+// BFS
+fun validPathBfs(n: Int, edges: Array<IntArray>, source: Int, destination: Int): Boolean {
     val visited = BooleanArray(n) { false }
     val queue: Queue<Int> = LinkedList()
     queue.add(source)
