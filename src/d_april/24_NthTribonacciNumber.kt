@@ -16,7 +16,7 @@ package d_april
  */
 fun main() {
 
-    val testCases = listOf(4, 5, 25, 73)
+    val testCases = listOf(4, 5, 25)
 
     for (n in testCases) {
         println("Result ==> ${tribonacci(n)}")
@@ -25,6 +25,14 @@ fun main() {
 }
 
 fun tribonacci(n: Int): Int {
+    // base case
+    if (n == 0) return 0
+    if (n <= 2) return 1
+
+    return tribonacci(n - 1) + tribonacci(n - 2) + tribonacci(n - 3)
+}
+
+fun tribonacci1(n: Int): Int {
     val arr = IntArray(100) { 0 }
     arr[1] = 1
     arr[2] = 1
@@ -38,3 +46,5 @@ fun tribonacci(n: Int): Int {
 
     return arr[n]
 }
+
+
