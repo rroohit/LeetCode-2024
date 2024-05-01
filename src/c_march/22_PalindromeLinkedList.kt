@@ -1,7 +1,7 @@
 package c_march
 
-import data_types.ListNode
-import data_types.createLinkedList
+import z_data_types.ListNode
+import z_data_types.createLinkedList
 import java.util.*
 
 /**

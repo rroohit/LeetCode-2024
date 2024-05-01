@@ -1,4 +1,4 @@
-package data_types
+package z_data_types
 
 class ListNode(var `val`: Int) {
     var next: ListNode? = null

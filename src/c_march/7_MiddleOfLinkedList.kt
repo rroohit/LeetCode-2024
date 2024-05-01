@@ -1,6 +1,6 @@
 package c_march
 
-import data_types.ListNode
+import z_data_types.ListNode
 
 /**
  *  Problem 7. Middle of the Linked List

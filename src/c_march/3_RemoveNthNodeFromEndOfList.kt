@@ -1,6 +1,6 @@
 package c_march
 
-import data_types.ListNode
+import z_data_types.ListNode
 
 /**
  *  Problem 3. Remove Nth Node From End of List
