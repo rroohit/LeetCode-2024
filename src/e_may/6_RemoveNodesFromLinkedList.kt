@@ -38,22 +38,21 @@ fun removeNodes(head: ListNode?): ListNode? {
     val nodes = mutableListOf<ListNode>() // SC - O(n)
     var curr: ListNode? = head
     while (curr != null) { // TC - O(n)
+        while (nodes.isNotEmpty() && nodes.last().`val` < curr.`val`) {
+            nodes.removeLast()
+        }
         nodes.add(curr)
         curr = curr.next
     }
 
-    var next = nodes.removeLast()
     curr = nodes.removeLast()
-
     while (nodes.isNotEmpty()) {
-        if (curr != null && curr.`val` >= next.`val`) {
-            curr.next = next
-            next = curr
-        }
-        curr = nodes.removeLast()
+        val new = nodes.removeLast()
+        new.next = curr
+        curr = new
     }
 
-    return next
+    return curr
 }
 
 
