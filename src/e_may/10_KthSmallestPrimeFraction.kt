@@ -31,6 +31,7 @@ fun main() {
 
 }
 
+// Brute force
 fun kthSmallestPrimeFraction(arr: IntArray, k: Int): IntArray {
     val qu = PriorityQueue<Pair<Float, Pair<Int, Int>>>(compareBy { it.first })
 
