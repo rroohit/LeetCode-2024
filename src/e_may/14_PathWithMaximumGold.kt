@@ -10,9 +10,9 @@ import kotlin.math.max
  *  ## Approach -
  *
  *  ## Complexity:
- *       - Time complexity:
+ *       - Time complexity: O(m * n)
  *
- *       - Space complexity:
+ *       - Space complexity: O(1)
  *
  * ## Code -
  */
@@ -25,7 +25,7 @@ fun main() {
             intArrayOf(3, 4, 5),
             intArrayOf(0, 3, 0),
             intArrayOf(9, 0, 20)
-        )
+        ) // ans = 28
     )
 
     testCases.forEach { grid ->
