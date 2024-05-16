@@ -36,14 +36,14 @@ fun main() {
 // PostOrder : Left -> Right -> Root
 fun evaluateTree(root: TreeNode?): Boolean {
     return when(root?.`val`) {
-        1, 0 -> {
-            root.`val` == 1
-        }
-        2 -> { // OR
+        2 -> { // AND
             evaluateTree(root.left) || evaluateTree(root.right)
         }
-        else -> { // AND
-            evaluateTree(root?.left) && evaluateTree(root?.right)
+        3 -> { // OR
+            evaluateTree(root.left) && evaluateTree(root.right)
+        }
+        else -> {
+            root?.`val` == 1
         }
     }
 }
