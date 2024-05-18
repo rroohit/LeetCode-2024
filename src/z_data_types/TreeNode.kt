@@ -59,8 +59,10 @@ fun printTreeDFS(node: TreeNode?) {
     print("${node.`val`} ")
 
     // Recursively traverse left subtree
+    if (node.left != null) print("-> ")
     printTreeDFS(node.left)
 
     // Recursively traverse right subtree
+    if (node.right != null) print("-> ")
     printTreeDFS(node.right)
 }
