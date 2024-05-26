@@ -8,9 +8,9 @@ package e_may
  *  ## Approach -
  *
  *  ## Complexity:
- *       - Time complexity:
+ *       - Time complexity: O(n * 2^n)
  *
- *       - Space complexity:
+ *       - Space complexity: O(n * 2^n)
  *
  * ## Code -
  */
