@@ -8,7 +8,7 @@ package f_june
  *  ## Approach -
  *
  *  ## Complexity:
- *       - Time complexity: O(n log n)
+ *       - Time complexity: O(n)
  *
  *       - Space complexity: O(n)
  *
@@ -29,6 +29,25 @@ fun main() {
 }
 
 fun heightChecker(heights: IntArray): Int {
+    val exp = IntArray(101){ 0 }
+    for (he in heights) {
+        exp[he]++
+    }
+
+    var count = 0
+    var l = 0
+    for (i in exp.indices) {
+        repeat(exp[i]) {
+            if (heights[l++] != i) count++
+        }
+        if (l == heights.size) break
+    }
+
+    return count
+}
+
+// TC - O(n log n) :: SC - O(n)
+fun heightChecker2(heights: IntArray): Int {
     val expected = heights.sorted()
     var count = 0
 
