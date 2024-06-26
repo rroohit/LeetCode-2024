@@ -66,3 +66,20 @@ fun printTreeDFS(node: TreeNode?) {
     if (node.right != null) print("-> ")
     printTreeDFS(node.right)
 }
+
+fun printTreeInorder(node: TreeNode?) {
+    if (node == null) return
+
+    // Recursively traverse left subtree
+    printTreeDFS(node.left)
+
+    print("-> ")
+
+    // Print the current node value
+    print("${node.`val`} ")
+
+    print("-> ")
+    // Recursively traverse right subtree
+    printTreeDFS(node.right)
+
+}
