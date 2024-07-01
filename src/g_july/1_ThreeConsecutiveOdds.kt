@@ -18,7 +18,7 @@ fun main() {
 
     val testCases = listOf(
         intArrayOf(1, 2, 34, 3, 4, 5, 7, 23, 12),// true
-        intArrayOf(2, 6, 4, 1)
+        intArrayOf(2, 6, 4, 1) // false
     )
 
     testCases.forEach { arr ->
