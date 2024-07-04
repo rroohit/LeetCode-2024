@@ -27,7 +27,7 @@ fun printLinkedList(head: ListNode?) {
         visited.add(current)
         print("${current.`val`} ")
         current = current.next
-        if (current != null) print("-> ")
+        if (current != null) print("-> ") else print("-> null")
     }
     println()
 }
