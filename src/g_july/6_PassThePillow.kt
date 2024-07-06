@@ -28,8 +28,12 @@ fun main() {
     }
 
 }
-
 fun passThePillow(n: Int, time: Int): Int {
+    val chunks = time / (n - 1)
+    return if (chunks % 2 == 0) (time % (n - 1) + 1) else (n - time % (n - 1))
+}
+
+fun passThePillow2(n: Int, time: Int): Int {
     var remTime = time
     var direction = 0 // 0 -> :: 1 <-
     var currInd = 1
