@@ -61,7 +61,6 @@ fun survivedRobotsHealths(positions: IntArray, healths: IntArray, directions: St
         }
     }
 
-    stack.sortBy { it.index }
     return stack.map { it.health }
 }
 
