@@ -51,6 +51,7 @@ fun sortPeople(names: Array<String>, heights: IntArray): Array<String> {
             curr = heights[r]
             val prev = heights[r - 1]
             if (prev < curr) {
+                // swap it
                 swapNames(names, r - 1)
                 swapHeights(heights, r - 1)
             }
@@ -74,6 +75,7 @@ private fun swapHeights(heights: IntArray, l: Int) {
     heights[l] = heights[l + 1]
     heights[l + 1] = temp
 }
+
 
 fun sortPeople1(names: Array<String>, heights: IntArray): Array<String> {
     // SC - O(n)
