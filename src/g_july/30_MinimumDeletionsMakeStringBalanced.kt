@@ -30,6 +30,23 @@ fun main() {
 }
 
 fun minimumDeletions(s: String): Int {
+    var aCount = 0
+    for (i in s) {
+        if (i == 'a') aCount++
+    }
+
+    var bCount = 0
+    var totalDelete = s.length
+    for (c in s) {
+        if (c == 'a') aCount--
+        totalDelete = min(totalDelete, aCount + bCount)
+        if (c == 'b') bCount++
+    }
+
+    return totalDelete
+}
+
+fun minimumDeletions1(s: String): Int {
     val aCount = IntArray(s.length)
     for (i in s.length - 2 downTo 0) {
         aCount[i] = aCount[i + 1]
