@@ -19,7 +19,7 @@ fun main() {
     val testCases = listOf(123, 12345, 1234567)
     val solution = Solution()
     testCases.forEach { num ->
-        println("Result ==> ${solution.numberToWords(num)}")
+        println("Result => ${solution.numberToWords(num)}")
     }
 
 }
