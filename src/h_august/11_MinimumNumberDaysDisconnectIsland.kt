@@ -32,9 +32,9 @@ fun main() {
 }
 
 fun minDays(grid: Array<IntArray>): Int {
-    val w = grid[0].size;
-    val h = grid.size;
-    var e = -1;
+    val w = grid[0].size
+    val h = grid.size
+    var e = -1
     var c = 0
     val ones = (0..<w * h).filter { grid[it / w][it % w] > 0 }
     val uf = IntArray(w * h) { it }
