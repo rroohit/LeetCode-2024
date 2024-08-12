@@ -35,8 +35,7 @@ fun main() {
 
 }
 
-class KthLargest(k: Int, nums: IntArray) {
-    private val k = k
+class KthLargest(private val k: Int, nums: IntArray) {
     private val prQu = PriorityQueue<Int>()
     init {
         nums.forEach { add(it) }
