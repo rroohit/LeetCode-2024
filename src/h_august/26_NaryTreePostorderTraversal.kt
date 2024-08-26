@@ -29,9 +29,9 @@ fun postorder(root: Node?): List<Int> {
 fun helper(root: Node?, result: MutableList<Int>): List<Int> {
     if (root == null) return result
 
-    for (child in root!!.children)
+    for (child in root.children)
         helper(child, result)
-    result.add(root!!.`val`)
+    result.add(root.`val`)
 
     return result
 }
