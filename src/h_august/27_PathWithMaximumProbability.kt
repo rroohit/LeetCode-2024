@@ -18,6 +18,19 @@ import java.util.*
  */
 fun main() {
 
+    val result = maxProbability(
+        n = 3,
+        arrayOf(
+            intArrayOf(0, 1),
+            intArrayOf(1, 2),
+            intArrayOf(0, 2)
+        ),
+        succProb = doubleArrayOf(0.5, 0.5, 0.2),
+        startNode = 0,
+        endNode = 0
+    )
+
+    println("Result => $result")
 
 }
 
@@ -29,14 +42,14 @@ fun maxProbability(
     endNode: Int
 ): Double {
     val visited = mutableSetOf<Int>()
-    val maxHeap = PriorityQueue<Edge>() { a, b -> if (a.weight < b.weight) 1 else -1 }
+    val maxHeap = PriorityQueue<Edge> { a, b -> if (a.weight < b.weight) 1 else -1 }
     val adjList = mutableMapOf<Int, MutableList<Edge>>()
 
     edges.forEachIndexed { index, it ->
-        if (adjList.contains(it[0]).not()) adjList.put(it[0], mutableListOf<Edge>())
-        adjList.get(it[0])!!.add(Edge(it[1], succProb[index]))
-        if (adjList.contains(it[1]).not()) adjList.put(it[1], mutableListOf<Edge>())
-        adjList.get(it[1])!!.add(Edge(it[0], succProb[index]))
+        if (adjList.contains(it[0]).not()) adjList[it[0]] = mutableListOf()
+        adjList[it[0]]!!.add(Edge(it[1], succProb[index]))
+        if (adjList.contains(it[1]).not()) adjList[it[1]] = mutableListOf()
+        adjList[it[1]]!!.add(Edge(it[0], succProb[index]))
     }
 
     adjList[startNode]?.forEach {
