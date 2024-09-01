@@ -32,11 +32,12 @@ fun main() {
     )
 
     testCases.forEach { test ->
-        println("Result ==> ${construct2DArray(test.first, test.second, test.third).map { it.toList() }}")
+        println("Result ==> ${construct2DArray1(test.first, test.second, test.third).map { it.toList() }}")
     }
 
 }
 
+// Simulation
 fun construct2DArray(original: IntArray, m: Int, n: Int): Array<IntArray> {
     if (m * n != original.size) return emptyArray()
     val resultArray = Array(m) { IntArray(n) }
@@ -45,6 +46,16 @@ fun construct2DArray(original: IntArray, m: Int, n: Int): Array<IntArray> {
         for (c in 0..<n) { // column traversal
             resultArray[r][c] = original[i++]
         }
+    }
+    return resultArray
+}
+
+// Math
+fun construct2DArray1(original: IntArray, m: Int, n: Int): Array<IntArray> {
+    if (m * n != original.size) return emptyArray()
+    val resultArray = Array(m) { IntArray(n) }
+    for (i in original.indices) {
+        resultArray[i / n][i % n] = original[i]
     }
     return resultArray
 }
