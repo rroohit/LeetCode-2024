@@ -23,8 +23,8 @@ fun main() {
 }
 
 fun isSubPath(head: ListNode?, root: TreeNode?): Boolean {
-    if (head == null) return true
-    if (root == null) return false
+    if (head == null) return true // empty linked list
+    if (root == null) return false // empty tree
 
     if (root.`val` == head.`val` && isPath(head, root)) return true
 

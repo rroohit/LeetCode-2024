@@ -17,6 +17,7 @@ fun createLinkedList(nums: IntArray): ListNode? {
 }
 
 fun printLinkedList(head: ListNode?) {
+    if (head == null) print("null")
     val visited = mutableSetOf<ListNode>()
     var current: ListNode? = head
     while (current != null) {
