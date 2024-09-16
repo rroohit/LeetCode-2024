@@ -25,12 +25,39 @@ fun main() {
 
     testCases.forEach { test ->
         println("Result ==> ${findMinDifference(test)}")
+        println()
     }
 
 }
 
-// TC - O(N LogN) :: SC - O(N)
+/// Bucket Sort
 fun findMinDifference(timePoints: List<String>): Int {
+    val bucket = IntArray(1440)
+    for (time in timePoints) {
+        bucket[time.toMinutes()]++
+    }
+
+    val arrMinutes = IntArray(timePoints.size)
+    var p = 0
+    for ((i, count) in bucket.withIndex()) {
+        if (count > 0) {
+            repeat(count) {
+                arrMinutes[p++] = i
+            }
+        }
+    }
+
+    var minMinute = 1440
+    for (i in 0..<arrMinutes.size - 1) {
+        minMinute = min(minMinute, arrMinutes[i + 1] - arrMinutes[i])
+    }
+    val loopMinDiff = 1440 - (arrMinutes.last() - arrMinutes.first())
+    return min(loopMinDiff, minMinute)
+}
+
+
+// TC - O(N LogN) :: SC - O(N)
+fun findMinDifference1(timePoints: List<String>): Int {
     val arrMinutes = IntArray(timePoints.size)
     for ((ind, time) in timePoints.withIndex()) {
         arrMinutes[ind] = time.toMinutes()
