@@ -43,7 +43,6 @@ fun minExtraChar(s: String, dictionary: Array<String>): Int {
 
             }
         }
-
     }
 
     return dp.last()
