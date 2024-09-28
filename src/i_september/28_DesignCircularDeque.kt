@@ -67,12 +67,12 @@ class MyCircularDeque(val k: Int) {
 
     val arr = MutableList(k) { -1 }
 
-    private var frontIndex = -1;
-    private var rearIndex = -1;
-    private var currsize = 0
+    private var frontIndex = -1
+    private var rearIndex = -1
+    private var currSize = 0
 
     fun insertFront(value: Int): Boolean {
-        if (currsize == k) return false
+        if (currSize == k) return false
         if (frontIndex == -1 && rearIndex == -1) {
             frontIndex = 0
             rearIndex = 0
@@ -81,12 +81,12 @@ class MyCircularDeque(val k: Int) {
             frontIndex = (frontIndex - 1 + k) % k
             arr[frontIndex] = value
         }
-        currsize++
+        currSize++
         return true
     }
 
     fun insertLast(value: Int): Boolean {
-        if (currsize == k) return false
+        if (currSize == k) return false
 
         if (frontIndex == -1 && rearIndex == -1) {
             frontIndex = 0
@@ -96,41 +96,40 @@ class MyCircularDeque(val k: Int) {
             rearIndex = (rearIndex + 1) % k
             arr[rearIndex] = value
         }
-        currsize++
+        currSize++
         return true
     }
 
     fun deleteFront(): Boolean {
-        if (currsize == 0) return false
-        currsize--
+        if (currSize == 0) return false
+        currSize--
         frontIndex = (frontIndex + 1) % k
         return true
     }
 
     fun deleteLast(): Boolean {
-        if (currsize == 0) return false
-        currsize--
+        if (currSize == 0) return false
+        currSize--
         rearIndex = (rearIndex - 1 + k) % k
         return true
     }
 
     fun getFront(): Int {
-        if (currsize == 0) return -1
+        if (currSize == 0) return -1
         return arr[frontIndex]
     }
 
     fun getRear(): Int {
-        if (currsize == 0) return -1
+        if (currSize == 0) return -1
         return arr[rearIndex]
     }
 
     fun isEmpty(): Boolean {
-        if (currsize == 0) return true
-        return false
+        return currSize == 0
     }
 
     fun isFull(): Boolean {
-        return currsize == k
+        return currSize == k
     }
 
 }
