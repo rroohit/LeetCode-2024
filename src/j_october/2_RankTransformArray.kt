@@ -36,14 +36,17 @@ fun arrayRankTransform(arr: IntArray): IntArray {
     val sortedArr = arr.copyOf()
     Arrays.sort(sortedArr)
     var rank = 1
+
     for (i in sortedArr.indices) {
         if (i > 0 && sortedArr[i] > sortedArr[i - 1]) {
             rank++
         }
         numToRank[sortedArr[i]] = rank
     }
+
     for (i in arr.indices) {
         arr[i] = numToRank[arr[i]]!!
     }
+
     return arr
 }
