@@ -1,5 +1,9 @@
 package j_october
 
+import java.util.*
+import kotlin.math.max
+
+
 /**
  *  Problem 13. Smallest Range Covering Elements from K Lists
  *
@@ -30,9 +34,43 @@ fun main() {
 
 }
 
+fun smallestRange(nums: List<List<Int>>): IntArray {
+    val pq = PriorityQueue(
+        Comparator.comparingInt { a: IntArray -> a[0] }
+    )
+    var maxVal = Int.MIN_VALUE
+    var rangeStart = 0
+    var rangeEnd = Int.MAX_VALUE
+    for (i in nums.indices) {
+        pq.offer(intArrayOf(nums[i][0], i, 0))
+        maxVal = maxVal.coerceAtLeast(nums[i][0])
+    }
+
+    while (pq.size == nums.size) {
+        val data = pq.poll()
+        val minVal = data[0]
+        val row = data[1]
+        val col = data[2]
+
+        if (maxVal - minVal < rangeEnd - rangeStart) {
+            rangeStart = minVal
+            rangeEnd = maxVal
+        }
+
+        if (col + 1 < nums[row].size) {
+            val nextVal = nums[row][col + 1]
+            pq.offer(intArrayOf(nextVal, row, col + 1))
+            maxVal = max(maxVal.toDouble(), nextVal.toDouble()).toInt()
+        }
+    }
+
+    return intArrayOf(rangeStart, rangeEnd)
+}
+
+
 // Brute force -
 // TC - O(k * n) :: SC - O(k)
-fun smallestRange(nums: List<List<Int>>): IntArray {
+fun smallestRange1(nums: List<List<Int>>): IntArray {
     val k = nums.size
 
     val indices = IntArray(k)
