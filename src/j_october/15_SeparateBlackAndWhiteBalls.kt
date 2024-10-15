@@ -29,8 +29,20 @@ fun main() {
 
 }
 
-//
 fun minimumSteps(s: String): Long {
+    var steps = 0L
+    var ones = 0L
+    for (ch in s) {
+        if (ch == '1') {
+            ones++
+        } else {
+            steps += ones
+        }
+    }
+    return steps
+}
+
+fun minimumSteps1(s: String): Long {
     var steps = 0L
     var zeros = 0L
     for (i in s.length - 1 downTo 0) {
