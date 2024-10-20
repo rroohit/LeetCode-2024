@@ -1,5 +1,6 @@
 package j_october
 
+
 /**
  *  Problem 20. Parsing A Boolean Expression
  *
@@ -8,7 +9,7 @@ package j_october
  *  ## Approach -
  *
  *  ## Complexity:
- *       - Time complexity: O(N^2)
+ *       - Time complexity: O(N)
  *
  *       - Space complexity: O(N)
  *
@@ -26,7 +27,45 @@ fun main() {
 
 }
 
+// Recursive
+// TC - O(N) :: SC - O(N)
+private var i = 0
 fun parseBoolExpr(expression: String): Boolean {
+    i = 0
+    return evaluate(expression)
+}
+
+private fun evaluate(exp: String): Boolean {
+    val char = exp[i++]
+    if (char == 't') return true
+    if (char == 'f') return false
+
+    if (char == '!') {
+        i++
+        val result = !evaluate(exp)
+        i++
+        return result
+    }
+
+    val chars = mutableListOf<Boolean>()
+    i++
+    while(exp[i] != ')') {
+        if (exp[i] != ',') {
+            chars.add(evaluate(exp))
+        } else i++
+    }
+    i++
+
+    if (char == '&') return !chars.contains(false)
+    if (char == '|') return chars.contains(true)
+    return false
+}
+
+/////////////////////////////////////////
+//
+// String Manipulation
+// TC - O(N^2) :: SC - O(N)
+fun parseBoolExpr2(expression: String): Boolean {
     var mExpression = expression
     while (mExpression.length > 1) {
         val start = mExpression.lastIndexOf('!').coerceAtLeast(
@@ -39,8 +78,6 @@ fun parseBoolExpr(expression: String): Boolean {
     }
     return mExpression[0] == 't'
 }
-
-
 private fun evaluateSubExpr(subExpr: String): Char {
     val op = subExpr[0]
     val values = subExpr.substring(2, subExpr.length - 1)
