@@ -18,11 +18,11 @@ import kotlin.math.max
  */
 fun main() {
 
-     val testCases = listOf(
-         "ababccc",
-         "aba",
-         "aa"
-     )
+    val testCases = listOf(
+        "ababccc",
+        "aba",
+        "aa"
+    )
 
     testCases.forEach { str ->
         println("Result ==> ${maxUniqueSplit(str)}")
@@ -32,10 +32,36 @@ fun main() {
 
 fun maxUniqueSplit(s: String): Int {
     val seen = HashSet<String>()
-    return backtrack(s, 0, seen)
+    val maxCount = IntArray(1)
+    backtrackB(s, 0, seen, 0, maxCount)
+    return maxCount.first()
 }
 
-private fun backtrack(s: String, start: Int, seen: HashSet<String>): Int {
+private fun backtrackB(
+    s: String,
+    start: Int,
+    seen: HashSet<String>,
+    currCount: Int,
+    maxCount: IntArray
+) {
+    if ((currCount + (s.length - start)) <= maxCount[0]) return
+    if (start == s.length) {
+        maxCount[0] = max(currCount, maxCount[0])
+        return
+    }
+
+    for (end in start + 1..s.length) {
+        val subStr = s.substring(start, end)
+        if (!seen.contains(subStr)) {
+            seen.add(subStr)
+            backtrackB(s, end, seen, currCount + 1, maxCount)
+            seen.remove(subStr)
+        }
+    }
+    return
+}
+
+private fun backtrackA(s: String, start: Int, seen: HashSet<String>): Int {
     if (start == s.length) return 0 // base case
     var maxCount = 0
     for (end in start + 1..s.length) {
@@ -44,7 +70,7 @@ private fun backtrack(s: String, start: Int, seen: HashSet<String>): Int {
             seen.add(subStr)
             maxCount = max(
                 maxCount,
-                1 + backtrack(s, end, seen)
+                1 + backtrackA(s, end, seen)
             )
             seen.remove(subStr)
         }
