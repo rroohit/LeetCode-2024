@@ -13,7 +13,8 @@ import java.util.*
  *  ## Approach -
  *
  *  ## Complexity:
- *       - Time complexity: O(log^2N + k*logN)
+ *
+ *       - Time complexity: O(log^2 * N + k * logN)
  *
  *       - Space complexity: O(N)
  *
