@@ -41,7 +41,7 @@ fun kthLargestLevelSum(root: TreeNode?, k: Int): Long {
         val size = bfsQueue.size
         var sum: Long = 0
         for (i in 0..<size) {
-            val poppedNode = bfsQueue.remove()
+            val poppedNode = bfsQueue.poll()
             sum += poppedNode!!.`val`
             if (poppedNode.left != null) bfsQueue.add(poppedNode.left)
             if (poppedNode.right != null) bfsQueue.add(poppedNode.right)
