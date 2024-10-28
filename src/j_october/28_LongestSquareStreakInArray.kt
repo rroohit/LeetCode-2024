@@ -54,7 +54,6 @@ fun longestSquareStreak(nums: IntArray): Int {
     return if (longStreak < 2) -1 else longStreak
 }
 
-/// 1 2 3 4 5 6 7 8 9
 private fun binarySearch(nums: IntArray, target: Int): Boolean {
     if (target < 0) return false
     var left = 0
