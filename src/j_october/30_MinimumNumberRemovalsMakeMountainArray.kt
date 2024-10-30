@@ -21,8 +21,8 @@ import kotlin.math.min
 fun main() {
 
     val testCases = listOf(
-        intArrayOf(1, 3, 1),
-        intArrayOf(2, 1, 1, 5, 6, 2, 3, 1)
+        intArrayOf(1, 3, 1), // 0
+        intArrayOf(2, 1, 1, 5, 6, 2, 3, 1) // 3
     )
 
     testCases.forEach { nums ->
