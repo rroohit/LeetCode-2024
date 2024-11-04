@@ -41,6 +41,5 @@ fun compressedString(word: String): String {
         sb.append("$count$curr")
         i++
     }
-
     return sb.toString()
 }
