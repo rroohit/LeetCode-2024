@@ -47,7 +47,7 @@ fun maximumSubarraySum(nums: IntArray, k: Int): Long {
         seen.add(right)
         currSum += right
 
-        while (r - l > k) {
+        if (r - l > k) {
             val left = nums[l++]
             seen.remove(left)
             currSum -= left
