@@ -30,6 +30,7 @@ fun main() {
 
 
 }
+
 fun takeCharacters(s: String, k: Int): Int {
     val count = IntArray(3)
     val n = s.length
