@@ -37,6 +37,25 @@ fun main() {
 }
 
 fun findChampion(n: Int, edges: Array<IntArray>): Int {
+    val isWeakTeam = BooleanArray(n)
+    for ((u, v) in edges) {
+        isWeakTeam[v] = true
+    }
+
+    var nonTempCount = 0
+    var index = -1
+    for (team in isWeakTeam.indices) {
+        if (!isWeakTeam[team]) {
+            nonTempCount++
+            index = team
+            if (nonTempCount > 1) return -1
+        }
+    }
+
+    return index
+}
+
+fun findChampion1(n: Int, edges: Array<IntArray>): Int {
     val inDegree = IntArray(n)
 
     for (edge in edges) {
