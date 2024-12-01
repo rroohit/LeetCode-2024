@@ -20,6 +20,7 @@ fun main() {
         intArrayOf(10, 2, 5, 3),
         intArrayOf(3, 1, 7, 11),
         intArrayOf(7, 1, 14, 11),
+        intArrayOf(-2, 0, 10, -19, 4, 6, -8)
     )
 
     testCases.forEach { arr ->
@@ -29,6 +30,29 @@ fun main() {
 }
 
 fun checkIfExist(arr: IntArray): Boolean {
+    arr.sort()
+    for (i in arr.indices) {
+        val num = arr[i] * 2
+        val ind = arr.isNumExistInd(num)
+        if (ind >= 0 && ind != i) return true
+    }
+    return false
+}
+
+private fun IntArray.isNumExistInd(target: Int): Int {
+    var l = 0
+    var r = size - 1
+    while (l <= r) {
+        val m = (l + r) / 2
+        if (get(m) == target) return m
+        if (get(m) < target) l = m + 1 else r = m - 1
+    }
+    return -1
+}
+
+
+// Brute Force : TC - O(n) : SC - O(n)
+fun checkIfExist1(arr: IntArray): Boolean {
     val seen = HashSet<Int>()
     for (num in arr) {
         if (seen.contains(num * 2) ||
