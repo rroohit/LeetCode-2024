@@ -62,3 +62,40 @@ fun continuousSubarrays(nums: IntArray): Long {
     }
     return count
 }
+
+fun continuousSubarrays1(nums: IntArray): Long {
+    var left = 0
+    var right = 0
+    var count: Long = 0 // Total count of valid subarrays
+
+    // Min and max heaps storing indices, sorted by nums[index] values
+    val minHeap = PriorityQueue { a: Int?, b: Int? -> nums[a!!] - nums[b!!] }
+    val maxHeap = PriorityQueue { a: Int?, b: Int? -> nums[b!!] - nums[a!!] }
+
+    while (right < nums.size) {
+        // Add current index to both heaps
+        minHeap.add(right)
+        maxHeap.add(right)
+
+        // While window violates |nums[i] - nums[j]| ≤ 2 condition
+        // Shrink window from left and remove outdated indices
+        while (left < right && nums[maxHeap.peek()!!] - nums[minHeap.peek()!!] > 2
+        ) {
+            left++
+
+            // Remove indices that are now outside window
+            while (!maxHeap.isEmpty() && maxHeap.peek()!! < left) {
+                maxHeap.poll()
+            }
+            while (!minHeap.isEmpty() && minHeap.peek()!! < left) {
+                minHeap.poll()
+            }
+        }
+
+        // Add count of all valid subarrays ending at right
+        count += (right - left + 1).toLong()
+        right++
+    }
+
+    return count
+}
