@@ -1,5 +1,7 @@
 package l_december
 
+import java.util.*
+
 /**
  *  Problem 18. Final Prices With a Special Discount in a Shop.
  *
@@ -8,9 +10,9 @@ package l_december
  *  ## Approach -
  *
  *  ## Complexity:
- *       - Time complexity: O(n²)
+ *       - Time complexity: O(n)
  *
- *       - Space complexity: O(1)
+ *       - Space complexity: O(n)
  *
  * ## Code -
  */
@@ -29,8 +31,21 @@ fun main() {
 
 }
 
-// TC - O(n^2) :: SC - O(n)
 fun finalPrices(prices: IntArray): IntArray {
+    val stack = Stack<Int>()
+
+    for (i in prices.indices) {
+        while (!stack.isEmpty() && prices[stack.peek()] >= prices[i]) {
+            prices[stack.pop()] -= prices[i];
+        }
+        stack.push(i)
+    }
+
+    return prices
+}
+
+// TC - O(n²) :: SC - O(n)
+fun finalPrices1(prices: IntArray): IntArray {
     for (i in prices.indices) {
         var j = i + 1
         while (j < prices.size) {
