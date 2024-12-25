@@ -3,6 +3,7 @@ package l_december
 import z_data_types.TreeNode
 import z_data_types.createTree
 import java.util.*
+import kotlin.math.max
 
 /**
  *  Problem 25. Find Largest Value in Each Tree Row.
@@ -33,7 +34,30 @@ fun main() {
 
 }
 
+// DFS :: TC - O(n) :: SC - O(h) i.e - O(n)
 fun largestValues(root: TreeNode?): List<Int> {
+    val result = mutableListOf<Int>()
+    dfsToFindMax(root, result, 0)
+    return result
+}
+
+private fun dfsToFindMax(root: TreeNode?, result: MutableList<Int>, depth: Int) {
+    if (root == null) return
+
+    if (result.size == depth) { // when we reach first node in that level.
+        result.add(root.`val`)
+    } else {
+        result[depth] = max(root.`val`, result[depth])
+    }
+
+    if (root.left != null) dfsToFindMax(root.left, result, depth + 1)
+    if (root.right != null) dfsToFindMax(root.right, result, depth + 1)
+}
+
+
+//-------------------------------------------------------------------------------------------------------------------
+// BFS :: TC - O(n) : SC - O(n)
+fun largestValues1(root: TreeNode?): List<Int> {
     if (root == null) return listOf()
     val result = mutableListOf<Int>()
     val qu = LinkedList<TreeNode>()
