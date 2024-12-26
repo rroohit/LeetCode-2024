@@ -75,6 +75,7 @@ class SolutionTargetSum {
     // TC - O(2^n)
     // SC - O(n)
     private var totalWays = 0
+    @Suppress("unused")
     fun findTargetSumWays1(nums: IntArray, target: Int): Int {
         totalWays = 0
         calculateWays(nums, target, 0, 0)
