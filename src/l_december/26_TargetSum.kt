@@ -28,15 +28,58 @@ fun main() {
         println("Result ==> ${solutionTargetSum.findTargetSumWays(test.first, test.second)}")
     }
 
+    repeat(5) {
+
+    }
+
 }
 
 class SolutionTargetSum {
+
+    // Recursion with memoization
+    // TC - O(n * totalSum)
+    // SC - O(n * totalSum)
+    private var totalSum = 0
+    fun findTargetSumWays(nums: IntArray, target: Int): Int {
+        totalSum = nums.sum()
+        val memo = Array(nums.size) { IntArray(2 * totalSum + 1) { Int.MIN_VALUE } }
+        return calculateWays(nums, 0, 0, target, memo)
+    }
+
+    private fun calculateWays(
+        nums: IntArray,
+        ind: Int, // current index
+        sum: Int, // current Sum
+        target: Int,
+        memo: Array<IntArray>
+    ): Int {
+        if (ind == nums.size) return if (sum == target) 1 else 0
+
+        if (memo[ind][sum + totalSum] != Int.MIN_VALUE) return memo[ind][sum + totalSum]
+
+        val add = calculateWays(
+            nums,
+            ind + 1,
+            sum + nums[ind],
+            target, memo
+        )
+
+        val subtract = calculateWays(
+            nums,
+            ind + 1,
+            sum - nums[ind],
+            target, memo
+        )
+
+        memo[ind][sum + totalSum] = add + subtract
+        return memo[ind][sum + totalSum]
+    }
 
     // Brute Force - (recursion)
     // TC - O(2^n)
     // SC - O(n)
     private var totalWays = 0
-    fun findTargetSumWays(nums: IntArray, target: Int): Int {
+    fun findTargetSumWays1(nums: IntArray, target: Int): Int {
         totalWays = 0
         calculateWays(nums, target, 0, 0)
         return totalWays
@@ -52,4 +95,5 @@ class SolutionTargetSum {
             calculateWays(nums, target, sum - nums[i], i + 1)
         }
     }
+
 }
