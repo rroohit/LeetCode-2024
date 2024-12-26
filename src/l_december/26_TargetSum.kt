@@ -28,10 +28,6 @@ fun main() {
         println("Result ==> ${solutionTargetSum.findTargetSumWays(test.first, test.second)}")
     }
 
-    repeat(5) {
-
-    }
-
 }
 
 class SolutionTargetSum {
