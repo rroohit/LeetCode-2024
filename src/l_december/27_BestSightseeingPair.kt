@@ -37,6 +37,20 @@ fun main() {
 // TC - O(n)
 // SC - (1)
 fun maxScoreSightseeingPair(values: IntArray): Int {
+    var maxScore = -1
+    var i = 0
+    for (j in 1..<values.size) {
+        val num = values[j]
+        maxScore = max(maxScore, values[i] + num + i - j)
+        if (num + j >= values[i] + i) i = j
+    }
+    return maxScore
+}
+
+// Dynamic Programming - Space optimized
+// TC - O(n)
+// SC - (1)
+fun maxScoreSightseeingPair2(values: IntArray): Int {
     var maxScore = 0
     var left = values.first()
     for (j in 1..<values.size) {
