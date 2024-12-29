@@ -60,7 +60,7 @@ fun maxKDivisibleComponents(n: Int, edges: Array<IntArray>, values: IntArray, k:
     return componentCount[0]
 }
 
-private fun dfs(
+internal fun dfs(
     currentNode: Int,
     parentNode: Int,
     adjList: Array<MutableList<Int>>,
